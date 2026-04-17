@@ -57,28 +57,28 @@
 	   </div>
 	   <div id="output" class="w-full bg-gray-200 border border-gray-300 text-sm rounded-md px-4 py-2 min-h-[40px] flex flex-wrap gap-2"></div>
 	   <div class="grid grid-cols-3 w-full gap-2">
-		   <button type="button"
+		   <button id="redButton" type="button"
 				onclick="addColor('red', 'text-red-500')"
 				class="text-body bg-red-500 border border-default hover:bg-neutral-secondary-medium hover:text-heading focus:ring-3 focus:ring-neutral-tertiary-soft font-medium leading-5 rounded-md text-sm px-3 py-2 focus:outline-none active:bg-red-700">
 				Red
 		   </button>
-		  <button type="button" 
+		  <button id="greenButton" type="button" 
 			  onclick="addColor('green', 'text-green-500')"
 			  class="text-body bg-green-500 border border-default hover:bg-neutral-secondary-medium hover:text-heading focus:ring-3 focus:ring-neutral-tertiary-soft font-medium leading-5 rounded-md text-sm px-3 py-2 focus:outline-none active:bg-green-700">
 				Green
 		  </button>
-		  <button type="button" 
+		  <button id="blueButton" type="button" 
 			  onclick="addColor('blue', 'text-blue-500')"
 			  class="text-body bg-blue-500 border border-default hover:bg-neutral-secondary-medium hover:text-heading focus:ring-3 focus:ring-neutral-tertiary-soft font-medium leading-5 rounded-md text-sm px-3 py-2 focus:outline-none active:bg-blue-700">
 				Blue
 		  </button>	
 		  </div>
-		  <button onclick="sendData()"
+		  <button id="sendDataButton" onclick="sendData()"
     class="mt-4 w-full bg-gray-400 hover:bg-gray-600 active:bg-gray-600 text-white font-medium py-2 rounded-md transition-all duration-150 transform active:scale-95">
     Сортировать
 </button>
 	   <div id="result" class="w-full bg-gray-200 border border-gray-300 text-sm rounded-md px-4 py-2 min-h-[40px] flex flex-wrap gap-2"></div>
-	   <button onclick="clearData()"
+	   <button id="clearButton" onclick="clearData()"
     class="mt-4 w-full bg-yellow-400 hover:bg-yellow-600 active:bg-yellow-600 text-white font-medium py-2 rounded-md transition-all duration-150 transform active:scale-95">
     Очистить
 </button>
