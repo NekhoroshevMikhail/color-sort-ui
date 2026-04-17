@@ -17,7 +17,7 @@
 
 <div class="grid grid-cols-[1fr_auto_1fr_auto_1fr] gap-2 items-center">
 
-    <select id="select1" onchange="updateOptions(this)"
+    <select id="select1" weight=0 onchange="updateOptions(this)"
         class="w-full p-2 border border-gray-300 rounded-md">
         <option value="">Выбери</option>
         <option value="red">Red</option>
@@ -26,10 +26,10 @@
     </select>
 
     <div class="text-gray-500 font-bold px-1 text-center">
-        &gt;
+        &lt;
     </div>
 
-    <select id="select2" onchange="updateOptions(this)"
+    <select id="select2" weight=1 onchange="updateOptions(this)"
         class="w-full p-2 border border-gray-300 rounded-md">
         <option value="">Выбери</option>
         <option value="red">Red</option>
@@ -38,10 +38,10 @@
     </select>
 
     <div class="text-gray-500 font-bold px-1 text-center">
-        &gt;
+        &lt;
     </div>
 
-    <select id="select3" onchange="updateOptions(this)"
+    <select id="select3" weight=2 onchange="updateOptions(this)"
         class="w-full p-2 border border-gray-300 rounded-md">
         <option value="">Выбери</option>
         <option value="red">Red</option>
@@ -85,8 +85,12 @@
 
 <script>
  function clearData(){
-	const input = document.getElementById("output");
-	input.replaceChildren();
+	function clearChilds(id) {
+		const input = document.getElementById(id);
+		input.replaceChildren();
+	};
+	clearChilds("output");
+	clearChilds("result");
 	getSelects().forEach(select => {
 		select.selectedIndex = 0;
      });
@@ -121,12 +125,10 @@ return [
 	 }
 
      function getOrderRule() {
-         const weights = [2, 1, 0];
          const rule = {};
-
          getSelects().forEach((select, index) => {
              if (select.value) {
-                 rule[select.value] = weights[index];
+                 rule[select.value] = select.getAttribute("weight");
              }
          });
 
@@ -134,10 +136,9 @@ return [
      };
 
      function getOutputValues() {
-         const container = document.getElementById("output");
-         const spans = container.querySelectorAll("span");
+        const container = document.getElementById("output");
+        const spans = container.querySelectorAll("span");
 
-//         return Array.from(spans).map(span => span.textContent);
 		return Array.from(spans).map(span => span.textContent.trim()).filter(Boolean);
      };
      async function sendData() {
@@ -148,7 +149,7 @@ return [
          };
 
          try {
-             const response = await fetch("https://test-a65g.onrender.comS/sort", {
+             const response = await fetch("https://test-a65g.onrender.com/sort", {
                  method: "POST",
                  headers: {
                      "Content-Type": "application/json"
