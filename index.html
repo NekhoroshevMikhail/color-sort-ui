@@ -164,7 +164,7 @@ return [
              const result = await response.json();
 
 			document.getElementById("result").innerHTML =
-				result.sorted.map(v => `<span>${v}</span>`).join(" ");
+				result.sorted..map(v => `<span class="text-${v}-500">${v}</span>`).join(" ");
 
          } catch (error) {
              console.error("Ошибка запроса:", error);
