@@ -78,8 +78,20 @@
     Сортировать
 </button>
 	   <div id="result" class="w-full bg-gray-200 border border-gray-300 text-sm rounded-md px-4 py-2 min-h-[40px] flex flex-wrap gap-2"></div>
+	   <button onclick="clearData()"
+    class="mt-4 w-full bg-yellow-400 hover:bg-yellow-600 active:bg-yellow-600 text-white font-medium py-2 rounded-md transition-all duration-150 transform active:scale-95">
+    Очистить
+</button>
 
 <script>
+ function clearData(){
+	const input = document.getElementById("output");
+	input.replaceChildren();
+	getSelects().forEach(select => {
+		select.selectedIndex = 0;
+     });
+ }
+
  function addColor(text, className) {
      const input = document.getElementById("output");
      const span = document.createElement("span");
@@ -136,7 +148,7 @@ return [
          };
 
          try {
-             const response = await fetch("http://127.0.0.1:5000/sort", {
+             const response = await fetch("https://test-a65g.onrender.comS/sort", {
                  method: "POST",
                  headers: {
                      "Content-Type": "application/json"
