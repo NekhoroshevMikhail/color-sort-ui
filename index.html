@@ -88,7 +88,7 @@
 	function clearChilds(id) {
 		const input = document.getElementById(id);
 		input.replaceChildren();
-	};
+	}
 	clearChilds("output");
 	clearChilds("result");
 	getSelects().forEach(select => {
@@ -99,7 +99,7 @@
  function addColor(text, className) {
      const input = document.getElementById("output");
      const span = document.createElement("span");
-     span.className = className + " font-medium";
+     span.className = className + " font-mediuam";
      span.textContent = text;
      input.appendChild(span);
  }
@@ -133,14 +133,14 @@ return [
          });
 
          return rule;
-     };
+     }
 
      function getOutputValues() {
         const container = document.getElementById("output");
         const spans = container.querySelectorAll("span");
 
 		return Array.from(spans).map(span => span.textContent.trim()).filter(Boolean);
-     };
+     }
      async function sendData() {
 
          const requestData = {
@@ -164,12 +164,12 @@ return [
              const result = await response.json();
 
 			document.getElementById("result").innerHTML =
-				result.sorted..map(v => `<span class="text-${v}-500">${v}</span>`).join(" ");
+				result.sorted.map(v => `<span class="text-${v}-500">${v}</span>`).join(" ");
 
          } catch (error) {
              console.error("Ошибка запроса:", error);
          }
-     };
+     }
 
     </script>
 
