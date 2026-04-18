@@ -58,17 +58,17 @@
 	   <div id="output" class="w-full bg-gray-200 border border-gray-300 text-sm rounded-md px-4 py-2 min-h-[40px] flex flex-wrap gap-2"></div>
 	   <div class="grid grid-cols-3 w-full gap-2">
 		   <button id="redButton" type="button"
-				onclick="addColor('red', 'text-red-500')"
+				onclick="addColor(this, 'text-red-500')"
 				class="text-body bg-red-500 border border-default hover:bg-neutral-secondary-medium hover:text-heading focus:ring-3 focus:ring-neutral-tertiary-soft font-medium leading-5 rounded-md text-sm px-3 py-2 focus:outline-none active:bg-red-700">
 				К
 		   </button>
 		  <button id="greenButton" type="button" 
-			  onclick="addColor('green', 'text-green-500')"
+			  onclick="addColor(this, 'text-green-500')"
 			  class="text-body bg-green-500 border border-default hover:bg-neutral-secondary-medium hover:text-heading focus:ring-3 focus:ring-neutral-tertiary-soft font-medium leading-5 rounded-md text-sm px-3 py-2 focus:outline-none active:bg-green-700">
 				З
 		  </button>
 		  <button id="blueButton" type="button" 
-			  onclick="addColor('blue', 'text-blue-500')"
+			  onclick="addColor(this, 'text-blue-500')"
 			  class="text-body bg-blue-500 border border-default hover:bg-neutral-secondary-medium hover:text-heading focus:ring-3 focus:ring-neutral-tertiary-soft font-medium leading-5 rounded-md text-sm px-3 py-2 focus:outline-none active:bg-blue-700">
 				С
 		  </button>	
@@ -96,7 +96,8 @@
      });
  }
 
- function addColor(text, className) {
+ function addColor(button, className) {
+	 const text = button.textContent.trim()
      const input = document.getElementById("output");
      const span = document.createElement("span");
      span.className = className + " font-mediuam";
