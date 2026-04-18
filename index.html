@@ -173,7 +173,7 @@ return [
              const result = await response.json();
 
 			document.getElementById("result").innerHTML =
-				result.sorted.map(v => `<span class="text-${v.meta}-500">${v.value}</span>`).join(" ");
+				result.sorted.map(v => `<span class="${v.meta}">${v.value}</span>`).join(" ");
          } catch (error) {
              console.error("Ошибка запроса:", error);
          }
